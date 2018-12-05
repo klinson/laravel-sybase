@@ -41,7 +41,7 @@ class SybaseConnection extends Connection {
      */
     public function transaction(Closure $callback, $attempts = 1)
     {
-        if ($this->getDriverName() === 'sqlsrv') {
+        if ($this->getDriverName() === 'sybase') {
             return parent::transaction($callback);
         }
         $this->pdo->exec('BEGIN TRAN');
