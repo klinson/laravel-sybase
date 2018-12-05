@@ -15,11 +15,11 @@ class SybaseServiceProvider extends ServiceProvider
     public function register()
     {
 
-        Connection::resolverFor('sqlsrv', function ($connection, $database, $prefix, $config) {
+        Connection::resolverFor('sybase', function ($connection, $database, $prefix, $config) {
             return new SybaseConnection($connection, $database, $prefix, $config);
         });
         
-        $this->app->bind('db.connector.sqlsrv', function ($app) {
+        $this->app->bind('db.connector.sybase', function ($app) {
             return new SybaseConnector();
         });
 
