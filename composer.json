@@ -10,13 +10,19 @@
         {
             "name": "Ademir Mazer Junior",
             "email": "mazer@uepg.br"
+        },
+        {
+        	"name": "Klinson",
+            "email": "klinson@163.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-		"php": ">=5.5",
-		"laravel/framework": "5.*"
+		"php": ">=5.5"
 	},
+	"require-dev": {
+        "laravel/framework": "5.*"
+    },
 	"autoload": {
         "psr-4": { "Uepg\\LaravelSybase\\Database\\": "/Database" }
     }
