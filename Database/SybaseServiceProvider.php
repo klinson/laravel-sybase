@@ -16,6 +16,8 @@ class SybaseServiceProvider extends ServiceProvider
     {
 
         Connection::resolverFor('sybase', function ($connection, $database, $prefix, $config) {
+            $connector = new \Uepg\LaravelSybase\Database\SybaseConnector();
+            $connection = $connector->connect($config);
             return new SybaseConnection($connection, $database, $prefix, $config);
         });
         
