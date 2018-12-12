@@ -54,7 +54,9 @@ class SybaseGrammar extends Grammar {
 		// SQL Server system similar to the limit keywords available in MySQL.
 		if ($query->limit > 0 && $query->offset <= 0)
 		{
-			$select .= 'top '.$query->limit.' ';
+		    $limit_sql = 'set rowcount '.$query->limit;
+		    $query->getConnection()->statement($limit_sql);
+		    //$select .= 'top '.$query->limit.' ';
 		}
 
 		return $select.$this->columnize($columns);
